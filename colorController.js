@@ -137,7 +137,7 @@ async function resume() {
 }
 
 function stateUnchanged(lastState, currentState){
-  let compareFields = ['on', 'bri', 'hue', 'sat', 'effect', 'xy', 'ct', 'alert'];
+  let compareFields = ['on', 'hue', 'sat', 'effect', 'xy', 'ct', 'alert'];
   for(let field of compareFields){
     if((typeof currentState[field] != 'object' && lastState[field] != currentState[field] ) ||
       (typeof currentState[field] == 'object' && !_.isEqual(currentState[field], lastState[field]))) {
