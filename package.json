@@ -1,0 +1,21 @@
+{
+  "name": "hue-redshift",
+  "version": "0.0.1",
+  "description": "Match Philips Hue color bulbs to sun color temperature using redshift",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Lyons <matt@mattlyons.net>",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "child-process-promise": "^2.2.1",
+    "fs-extra": "^4.0.2",
+    "lodash": "^4.17.4",
+    "node-hue-api": "^2.4.2",
+    "prompt-promise": "^1.0.3",
+    "send-data": "^8.0.0"
+  }
+}
