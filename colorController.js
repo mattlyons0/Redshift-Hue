@@ -97,7 +97,12 @@ async function resume() {
     clearInterval(stop);
 
   let currentState = await getLightState();
-  let lastState = currentState;
+  let lastState = {
+    on: true,
+    colormode: 'ct',
+    effect: 'none',
+    alert: 'none'
+  };
 
   let state = lightState.create().on().transitionTime(10); //1 second
 
@@ -120,8 +125,7 @@ async function resume() {
         console.error('Invalid Integer Generated as color:', newColor);
       }
 
-      await delay(5000);
-      lastState = await getLightState();
+      lastState.ct = newColor;
     } else {
       if(stop) { //Stop if state has changed
         clearInterval(stop);
@@ -137,7 +141,7 @@ async function resume() {
 }
 
 function stateUnchanged(lastState, currentState){
-  let compareFields = ['on', 'hue', 'sat', 'effect', 'xy', 'ct', 'alert'];
+  let compareFields = ['on', 'colormode', 'effect', 'alert', 'ct'];
   for(let field of compareFields){
     if((typeof currentState[field] != 'object' && lastState[field] != currentState[field] ) ||
       (typeof currentState[field] == 'object' && !_.isEqual(currentState[field], lastState[field]))) {
