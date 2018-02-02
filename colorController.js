@@ -86,9 +86,10 @@ async function init() {
     console.log('Controlling Light #'+num);
     config.lightNum = num;
     await configUtil.write();
-  }
 
-  resume();
+    console.log('Starting Redshift');
+    resume();
+  }
 }
 
 async function resume() {
